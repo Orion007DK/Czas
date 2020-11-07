@@ -1,0 +1,38 @@
+<!Doctype html>
+<html>
+<head>
+<script type="text/javascript">
+function renderTime(){
+	var myDate = new Date();
+	var utc = myDate.getTime() + (myDate.getTimezoneOffset() * 60000);
+	
+		var myClockLublin = document.getElementById("clockLublin");
+		var myClockNewYork = document.getElementById("clockNowyYork");
+		var myClockSydney = document.getElementById("clockSydney");
+
+dateSydney = new Date(utc + (3600000*11));
+dateLublin = new Date (utc + (3600000*1));
+dateNewYork = new Date(utc + (3600000*(-4)));
+
+myClockSydney.textContent = dateSydney.toLocaleString();
+myClockLublin.textContent = dateLublin.toLocaleString();
+myClockNewYork.textContent=dateNewYork.toLocaleString();
+
+setTimeout("renderTime()", 1000);
+}
+
+renderTime();
+
+</script>
+	<title>CZAS</title>
+</head>
+<body onLoad="renderTime()">
+<div id="t">Data i czas:</div>
+</br> 
+Lublin <div id="clockLublin" class="container"></div>
+</br>
+Nowy York <div id="clockNowyYork" class="container"></div>
+</br>
+Sydney <div id="clockSydney" class="container"></div>
+</body>
+</html>
